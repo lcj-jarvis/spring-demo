@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+       <!--
+           声明组件扫描器：开启组件扫描(component-scan)，组件就是java对象
+            base-package：表示要扫描的包，该包及其下面的子包都会给扫描到
+		    1、如果要是扫描多个包，多个包使用逗号或者分号隔开
+		     <context:component-scan base-package="com.mrlu.spring.dao1,com.mrlu.spring5.dao2">
+		     </context:component-scan>
+		    2、扫描多个包的父目录也可以【即扫描父包】
+		      <context:component-scan base-package="com.mrlu.spring"></context:component-scan>
+
+		       //这样也可以，但是不建议这样，因为扫描的内容变多了，效率降低
+		       //而且如果有不同的包下的类使用了相同的id被扫描到了，就会报错
+		      <context:component-scan base-package="com.mrlu"></context:component-scan>
+
+		    加入了component-scan标签，配置文件的变化
+		     1、加入了一个新的约束文件spring-context.xsd
+		     2、给这个新的约束文件起了命名空间的名称
+       -->
+       <!--指定扫描多个包的三种方式-->
+       <!--第一种方式：使用多次组件扫描器，指定不同的包-->
+       <!-- <context:component-scan base-package="com.mrlu.spring.dao1"></context:component-scan>
+       <context:component-scan base-package="com.mrlu.spring.dao2"></context:component-scan>-->
+
+       <!--第二种:使用分隔符(,或者;)分隔多个包名-->
+       <!-- <context:component-scan base-package="com.mrlu.spring.dao1;com.mrlu.spring.dao2">
+       </context:component-scan>-->
+
+       <!--第三种方式：指定父包-->
+       <context:component-scan base-package="com.mrlu.spring.dao1"></context:component-scan>
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        声明Student对象
+        注入：就是赋值的意思
+        简单类型：spring中规定了java的基本数据类性及其包装类和String都是简单类型
+        DI：给属性赋值
+        1、set注入(设值注入)：spring调用类的set方法
+                           【实际上是根据name去找set方法，有没有对应的属性都没有关系，有set方法存在就行】，
+                           在set方访中完成属性的注入
+           （1）简答类型的set注入
+                <bean id="student" class="com.mrlu.spring.dao1.Student">
+                    <property name="属性名" value="属性值"/>
+                </bean>
+                一个property标签之前给一个属性赋值
+                【注】不管属性的类型是什么，都是value的赋值都要用""括起来，
+                      因为xml文件规定标签的属性赋值的方式就是 属性名="属性值"
+            (2)引用类型的set注入：spring调用类的set方法
+
+
+    -->
+    <!--
+       id相当于变量名
+        相当于
+            Student student = new Student();
+            student.setName("jack");
+            student.setAge(18);
+            student.setSchool();
+            School school = new School();
+            school.setName("北京海淀区");
+            school.setAddress("北京海淀区");
+            student.setSchool(school);
+    -->
+    <bean id="student" class="com.mrlu.spring.dao2.Student">
+        <property name="name" value="jack"/>
+        <property name="age" value="18"/>
+        <property name="school" ref="school"></property>
+    </bean>
+    <bean id="school" class="com.mrlu.spring.dao2.School">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="北京海淀区"></property>
+    </bean>
+
+</beans>

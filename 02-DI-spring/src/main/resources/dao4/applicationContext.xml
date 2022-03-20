@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        引用类型的自动注入：spring框架根据某些规则可言给引用类型赋值，不用你再给引用类型赋值了。
+        使用的规则采用的是：
+           byName，byType
+         1、byName(按名称注入)：java类中引用类型的属性名和spring容器中的(配置文件)的bean的id名称一样
+                              且数据类型是一致的。
+
+             语法：
+                <bean id="student" class="com.mrlu.spring.dao4.Student" autowire="byName">
+                   简单类型属性赋值
+                </bean>
+         2、byType(按类型注入)：java类中引用类型的数据类型和spring容器中(配置文件)<bean>的class属性
+                              是同源关系的，这样的bean能够赋值给引用类型
+                 同源就是一类的意思：
+                 1、java类的引用类型的数据类型和bean的class的值是一样的
+                 2、java类的引用类型的数据类型和bean的class的值是父子类关系
+                 3、java类的引用类型的数据类型和bean的class的值是接口和实现类关系的
+
+              语法：
+                 <bean id="student" class="com.mrlu.spring.dao4.Student" autowire="byType">
+                   简单类型属性赋值
+                </bean>
+
+              【注意】在byType中，在xml配置文件中声明bean只能有一个符合条件的，
+                     多余一个是错误的。
+    -->
+
+    <bean id="student" class="com.mrlu.spring.dao4.Student" autowire="byType">
+        <property name="name" value="jack"></property>
+        <property name="age" value="18"></property>
+        <!--<property name="school" ref="school"></property>-->
+    </bean>
+
+    <!--按byName自动注入-->
+    <!--<bean id="school" class="com.mrlu.spring.dao4.School">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="北京海淀区"></property>
+    </bean>-->
+
+    <!--按byType自动注入-->
+    <bean id="mySchool" class="com.mrlu.spring.dao4.School">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="北京海淀区"></property>
+    </bean>
+
+    <!--按类型自动制动注入只能有一个同源关系的bean对象-->
+    <!--<bean id="mySchool1" class="com.mrlu.spring.dao4.PrimarySchool">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="北京海淀区"></property>
+    </bean>-->
+
+</beans>

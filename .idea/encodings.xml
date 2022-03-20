@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/01-Hello-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01-Hello-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02-DI-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02-DI-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03-IOCHomework-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03-IOCHomework-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-DIByAnno-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-DIByAnno-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-aop-aspectj-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-aop-aspectj-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-mybatis-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-mybatis-spring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/07-transaction-spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08-transaction-spring - anno/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/09-transaction-spring - aspectj/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/10-web-spring/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

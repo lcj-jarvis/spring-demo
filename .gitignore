@@ -1,0 +1,11 @@
+# Project exclude paths
+/01-Hello-spring/target/
+/02-DI-spring/target/
+/03-IOCHomework-spring/target/
+/04-DIByAnno-spring/target/
+/05-aop-aspectj-spring/target/
+/06-mybatis-spring/target/
+/07-transaction-spring/target/
+/08-transaction-spring - anno/target/
+/09-transaction-spring - aspectj/target/
+/10-web-spring/target/

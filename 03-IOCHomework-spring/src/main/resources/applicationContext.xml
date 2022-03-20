@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!--更换数据库，只要改ref和加个UserDao的实现类就行。其他地方不用改动，仔细体会，精彩至极-->
+       <bean id="userService" class="com.mrlu.spring.service.impl.UserServiceImpl">
+           <property name="userDao" ref="oracleDaoImpl"></property>
+       </bean>
+       <bean id="userDaoImpl" class="com.mrlu.spring.dao3.impl.UserDaoImpl"></bean>
+       <bean id="oracleDaoImpl" class="com.mrlu.spring.dao3.impl.OracleDaoImpl"></bean>
+
+
+    <!--但是实体类一般不放到spring容器中-->
+       <bean id="user" class="com.mrlu.spring.domain.User">
+           <property name="name" value="jack"></property>
+           <property name="age" value="18"></property>
+       </bean>
+
+       <!--
+         spring容器中一般放什么对象？
+             dao类，service类，controller类，工具类
+             spring中的对象默认都是单例的。
+
+          不放到spring容器中的对象
+             1、实体类对象，实体类对象都是来自数据库
+             2、servlet，listener类，filter类【因为这些由Tomcat容器管理】
+       -->
+</beans>

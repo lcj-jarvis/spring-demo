@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        声明Student对象
+        注入：就是赋值的意思
+        简单类型：spring中规定了java的基本数据类性及其包装类和String都是简单类型
+        DI：给属性赋值
+        1、set注入(设值注入)：spring调用类的set方法
+                           【实际上是根据name去找set方法，有没有对应的属性都没有关系，有set方法存在就行】，
+                           在set方访中完成属性的注入
+           （1）简答类型的set注入
+                <bean id="student" class="com.mrlu.spring.dao1.Student">
+                    <property name="属性名" value="属性值"/>
+                </bean>
+                一个property标签之前给一个属性赋值
+                【注】不管属性的类型是什么，都是value的赋值都要用""括起来，
+                      因为xml文件规定标签的属性赋值的方式就是 属性名="属性值"
+            (2)引用类型的set注入：spring调用类的set方法
+
+        2、构造注入：spring调用类的有参构造方法，在创建对象的同时,在创建对象的同时，在构造方法中给属性赋值
+           构造方法使用<constructor-arg></constructor-arg>标签：一个标签表示构造方法的一个参数
+           <constructor-arg>标签的属性值：
+              name:表示构造方法的形参名
+              index:表示构造方法的参数的位置，参数从左往右：0,1,2....
+              value:构造方法的参数是简单类型的，使用value赋值
+              ref：表示构造方法的形参类型是引用类型的，使用ref
+
+    -->
+
+    <bean id="student" class="com.mrlu.spring.dao3.Student">
+        <!--这里面的标签位置也是随意的-->
+        <constructor-arg name="mySchool" ref="school"></constructor-arg>
+        <constructor-arg name="myName" value="jack"></constructor-arg>
+        <constructor-arg name="myAge" value="18"></constructor-arg>
+    </bean>
+
+    <!--对象的声明位置随意-->
+    <bean id="school" class="com.mrlu.spring.dao3.School">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="北京海淀区"></property>
+    </bean>
+
+    <!--使用index的方式-->
+    <bean id="student1" class="com.mrlu.spring.dao3.Student">
+        <!--这里面的标签位置也是随意的-->
+        <constructor-arg index="2" ref="school"></constructor-arg>
+        <constructor-arg index="0" value="jack"></constructor-arg>
+        <constructor-arg index="1" value="18"></constructor-arg>
+    </bean>
+
+    <!--省略index的方式-->
+    <bean id="student2" class="com.mrlu.spring.dao3.Student">
+        <!--省略index的方式要求赋值顺序和构造方法的参数的顺序一致-->
+        <constructor-arg  value="jack"></constructor-arg>
+        <constructor-arg  value="18"></constructor-arg>
+        <constructor-arg  ref="school"></constructor-arg>
+    </bean>
+
+    <!--通过构造注入创建一个File对象-->
+    <bean id="file" class="java.io.File">
+        <constructor-arg name="pathname" value="D:\软件\ideaproject\spring\02-DI-spring\src\main\resources\dao3\applicationContext.xml"></constructor-arg>
+    </bean>
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <!--
+           声明Student对象
+           注入：就是赋值的意思
+           简单类型：spring中规定了java的基本数据类性及其包装类和String都是简单类型
+           DI：给属性赋值
+           1、set注入(设值注入)：spring调用类的set方法
+                              【实际上是根据name去找set方法，有没有对应的属性都没有关系，有set方法存在就行】，
+                              在set方访中完成属性的注入
+              （1）简答类型的set注入
+                   <bean id="student" class="com.mrlu.spring.dao1.Student">
+                       <property name="属性名" value="属性值"/>
+                   </bean>
+                   一个property标签只能给一个属性赋值
+                   【注】不管属性的类型是什么，都是value的赋值都要用""括起来，
+                         因为xml文件规定标签的属性赋值的方式就是 属性名="属性值"
+       -->
+       <bean id="student" class="com.mrlu.spring.dao1.Student">
+           <property name="name" value="jack"/>
+           <property name="age" value="18"/>
+           <!--调用setEmail(),如果该方法没有就会报错-->
+           <property name="email" value="jack@qq.com"/>
+       </bean>
+
+       <bean id="student2" class="com.mrlu.spring.dao1.Student">
+           <constructor-arg name="name" value="marry"></constructor-arg>
+           <constructor-arg name="age" value="23"></constructor-arg>
+       </bean>
+
+       <bean id="date" class="java.util.Date">
+           <property name="time" value="88888888"></property> <!--调用Date类型的setTime()方法-->
+       </bean>
+</beans>
